@@ -89,10 +89,6 @@ export const Post = defineDocumentType(() => ({
             required: true
         },
         authors: {
-            // Reference @types are not embedded.
-            // Until this is fixed, we can use a simple list.
-            // type: "reference",
-            // of: Author,
             type: 'list',
             of: { type: 'string' },
             required: true
@@ -153,8 +149,6 @@ export default makeSource({
                 {
                     theme: 'github-dark',
                     onVisitLine(node) {
-                        // Prevent lines from collapsing in `display: grid` mode, and allow empty
-                        // lines to be copy/pasted
                         if (node.children.length === 0) {
                             node.children = [{ type: 'text', value: ' ' }];
                         }
