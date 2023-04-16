@@ -9,6 +9,11 @@ interface RoutePaths {
     REGISTER: string;
     TERMS: string;
     PRIVACY: string;
+    SUPPORT: string;
+    DASHBOARD: string;
+    BILLING: string;
+    SETTINGS: string;
+    EDIT: string;
 }
 
 export const Routes: Record<keyof RoutePaths, `/${string}`> = {
@@ -21,5 +26,10 @@ export const Routes: Record<keyof RoutePaths, `/${string}`> = {
     LOGIN: '/login',
     REGISTER: '/register',
     TERMS: '/terms',
-    PRIVACY: '/privacy'
-}
+    PRIVACY: '/privacy',
+    SUPPORT: '/support',
+    DASHBOARD: '/dashboard',
+    BILLING: '/billing',
+    SETTINGS: '/settings',
+    EDIT: '/edit',
+};

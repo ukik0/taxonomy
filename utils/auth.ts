@@ -1,8 +1,10 @@
-import {Routes} from '@/utils/constants';
-import {db} from '@/utils/db';
-import {PrismaAdapter} from '@next-auth/prisma-adapter';
-import {NextAuthOptions} from 'next-auth';
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import { NextAuthOptions } from 'next-auth';
 import GitHubProvider from 'next-auth/providers/github';
+import EmailProvider from 'next-auth/providers/github';
+
+import { Routes } from '@/utils/constants';
+import { db } from '@/utils/db';
 
 export const authOptions: NextAuthOptions = {
     adapter: PrismaAdapter(db),
@@ -16,6 +18,18 @@ export const authOptions: NextAuthOptions = {
         GitHubProvider({
             clientId: process.env.GITHUB_CLIENT_ID || '',
             clientSecret: process.env.GITHUB_CLIENT_SECRET || ''
+        }),
+        EmailProvider({
+            // @ts-ignore
+            server: {
+                host: process.env.EMAIL_SERVER_HOST,
+                port: process.env.EMAIL_SERVER_PORT,
+                auth: {
+                    user: process.env.EMAIL_SERVER_USER,
+                    pass: process.env.EMAIL_SERVER_PASSWORD
+                }
+            },
+            from: process.env.EMAIL_FROM
         })
     ],
     callbacks: {

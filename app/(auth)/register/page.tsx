@@ -1,13 +1,13 @@
-import {Metadata} from 'next';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import hero from '@/public/images/hero.png';
-import {Routes} from '@/utils';
-import {cn} from '@/utils/utils';
+import { Routes } from '@/utils';
 
-import {Icons} from '@/components/icons';
-import {buttonVariants} from '@/components/ui/button';
-import {AuthForm} from "@/components/auth-from";
+import { cn } from '@/utils/utils';
+import { AuthForm } from '@/components/auth-from';
+import { Icons } from '@/components/icons';
+import { buttonVariants } from '@/components/ui/button';
 
 export const metadata: Metadata = {
     title: 'Create an account',

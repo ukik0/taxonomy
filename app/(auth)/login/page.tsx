@@ -1,16 +1,16 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
-import {cn} from '@/utils/utils';
+import { Routes } from '@/utils';
 
-import {Icons} from '@/components/icons';
-import {buttonVariants} from '@/components/ui/button';
-import {Routes} from "@/utils";
-import {Metadata} from "next";
-import {AuthForm} from "@/components/auth-from";
+import { cn } from '@/utils/utils';
+import { AuthForm } from '@/components/auth-from';
+import { Icons } from '@/components/icons';
+import { buttonVariants } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-    title: "Login",
-    description: "Login to your account",
-}
+    title: 'Login',
+    description: 'Login to your account'
+};
 
 export default async function LoginPage() {
     return (
@@ -35,7 +35,7 @@ export default async function LoginPage() {
                         Enter your email to sign in to your account
                     </p>
                 </div>
-                <AuthForm/>
+                <AuthForm />
                 <p className='px-8 text-center text-sm text-slate-500 dark:text-slate-400'>
                     <Link href={Routes.REGISTER} className='hover:text-brand underline underline-offset-4'>
                         Don&apos;t have an account? Sign Up

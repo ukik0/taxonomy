@@ -92,29 +92,29 @@ You can also use HTML to embed cards in a grid.
 You can add your own custom components using the `components` props from `useMDXComponent`.
 
 ```ts title="components/mdx.tsx" {2,6}
-import { Callout } from "@/components/callout"
-import { CustomComponent } from "@/components/custom"
+import { Callout } from '@/components/callout';
+import { CustomComponent } from '@/components/custom';
 
 const components = {
-  Callout,
-  CustomComponent,
-}
+    Callout,
+    CustomComponent
+};
 
 export function Mdx({ code }) {
-  const Component = useMDXComponent(code)
+    const Component = useMDXComponent(code);
 
-  return (
-    <div className="mdx">
-      <Component components={components} />
-    </div>
-  )
+    return (
+        <div className='mdx'>
+            <Component components={components} />
+        </div>
+    );
 }
 ```
 
 Once you've added your custom component, you can use it in MDX as follows:
 
 ```js
-<CustomComponent propName="value" />
+<CustomComponent propName='value' />
 ```
 
 ---
@@ -125,10 +125,10 @@ You can overwrite HTML elements using the same technique above.
 
 ```ts {4}
 const components = {
-  Callout,
-  CustomComponent,
-  hr: ({ ...props }) => <hr className="my-4 border-slate-200 md:my-6" />,
-}
+    Callout,
+    CustomComponent,
+    hr: ({ ...props }) => <hr className='my-4 border-slate-200 md:my-6' />
+};
 ```
 
 This will overwrite the `<hr />` tag or `---` in Mardown with the HTML output above.
@@ -140,7 +140,7 @@ This will overwrite the `<hr />` tag or `---` in Mardown with the HTML output ab
 Tailwind CSS classes can be used inside MDX for styling.
 
 ```mdx
-<p className="text-red-600">This text will be red.</p>
+<p className='text-red-600'>This text will be red.</p>
 ```
 
 Make sure you have configured the path to your content in your `tailwind.config.js` file:
@@ -148,10 +148,6 @@ Make sure you have configured the path to your content in your `tailwind.config.
 ```js title="tailwind.config.js" {6}
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./app/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./content/**/*.{md,mdx}",
-  ],
-}
+    content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './content/**/*.{md,mdx}']
+};
 ```

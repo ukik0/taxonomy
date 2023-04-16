@@ -1,14 +1,15 @@
 'use client';
 
-import {ReactNode, useState} from 'react';
+import { ReactNode, useState } from 'react';
 import Link from 'next/link';
-import {useSelectedLayoutSegment} from 'next/navigation';
-import {Routes} from '@/utils';
-import {cn} from '@/utils/utils';
+import { useSelectedLayoutSegment } from 'next/navigation';
+import { NavItem } from '@/@types';
+import { Routes } from '@/utils';
 
-import {siteConfig} from '@/config/site';
-import {Icons} from '@/components/icons';
-import {MobileNavMenu} from '@/components/mobile-nav-menu';
+import { siteConfig } from '@/config/site';
+import { cn } from '@/utils/utils';
+import { Icons } from '@/components/icons';
+import { MobileNavMenu } from '@/components/mobile-nav-menu';
 
 interface NavMenuProps {
     items?: NavItem[];

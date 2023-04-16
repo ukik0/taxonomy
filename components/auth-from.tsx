@@ -1,19 +1,19 @@
 'use client';
 
-import {useState} from 'react';
-import {useSearchParams} from 'next/navigation';
-import {userAuthSchema} from '@/utils';
-import {cn} from '@/utils/utils';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {signIn} from 'next-auth/react';
-import {useForm} from 'react-hook-form';
-import {z} from 'zod';
+import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { userAuthSchema } from '@/utils';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { signIn } from 'next-auth/react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
-import {Icons} from '@/components/icons';
-import {Button, buttonVariants} from '@/components/ui/button';
-import {Input} from '@/components/ui/input';
-import {Label} from '@/components/ui/label';
-import {toast} from "@/utils/hooks/useToast";
+import { toast } from '@/utils/hooks/useToast';
+import { cn } from '@/utils/utils';
+import { Icons } from '@/components/icons';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 interface AuthFormProps extends ReactTagProps<'div'> {}
 
@@ -41,20 +41,20 @@ export const AuthForm = ({ className, ...props }: AuthFormProps) => {
             callbackUrl: searchParams?.get('from') || '/dashboard'
         });
 
-        setIsLoading(false)
+        setIsLoading(false);
 
         if (!signInResult?.ok) {
             return toast({
-                title: "Something went wrong.",
-                description: "Your sign in request failed. Please try again.",
-                variant: "destructive",
-            })
+                title: 'Something went wrong.',
+                description: 'Your sign in request failed. Please try again.',
+                variant: 'destructive'
+            });
         }
 
         return toast({
-            title: "Check your email",
-            description: "We sent you a login link. Be sure to check your spam too.",
-        })
+            title: 'Check your email',
+            description: 'We sent you a login link. Be sure to check your spam too.'
+        });
     };
 
     return (
@@ -77,7 +77,7 @@ export const AuthForm = ({ className, ...props }: AuthFormProps) => {
                         />
                         {errors?.email && <p className='px-1 text-xs text-red-600'>{errors.email.message}</p>}
                     </div>
-                    <Button className={cn(buttonVariants())} disabled={isLoading || !isValid}>
+                    <Button type='submit' className={cn(buttonVariants())} disabled={isLoading || !isValid}>
                         {isLoading && <Icons.spinner className='mr-2 h-4 w-4 animate-spin' />}
                         Sign In with Email
                     </Button>

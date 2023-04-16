@@ -1,4 +1,4 @@
-import {User} from 'next-auth';
+import { User } from 'next-auth';
 
 type UserId = string;
 

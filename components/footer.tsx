@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import {siteConfig} from '@/config/site';
-import {Icons} from '@/components/icons';
+import { siteConfig } from '@/config/site';
+import { Icons } from '@/components/icons';
 
 export const Footer = () => {
     return (

@@ -1,12 +1,12 @@
 'use client';
 
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 import Link from 'next/link';
-import {useLockBody} from '@/utils/hooks/useLockBody';
-import {cn} from '@/utils/utils';
 
-import {siteConfig} from '@/config/site';
-import {Icons} from '@/components/icons';
+import { siteConfig } from '@/config/site';
+import { useLockBody } from '@/utils/hooks/useLockBody';
+import { cn } from '@/utils/utils';
+import { Icons } from '@/components/icons';
 
 interface MobileNavMenuProps {
     items: NavItem[];

@@ -1,10 +1,10 @@
-import {Metadata} from 'next';
-import {notFound} from 'next/navigation';
-import {absoluteUrl} from '@/utils/utils';
-import {allPages} from 'contentlayer/generated';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { allPages } from 'contentlayer/generated';
 
-import {siteConfig} from '@/config/site';
-import {Mdx} from '@/components/mdx';
+import { siteConfig } from '@/config/site';
+import { absoluteUrl } from '@/utils/utils';
+import { Mdx } from '@/components/mdx';
 
 interface SlugPageProps {
     params: {

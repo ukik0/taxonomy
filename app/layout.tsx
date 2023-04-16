@@ -1,9 +1,11 @@
 import '@/styles/globals.css';
-import {ReactNode} from 'react';
-import {Inter as FontSans} from 'next/font/google';
-import {absoluteUrl, cn} from '@/utils/utils';
+import { ReactNode } from 'react';
+import { Inter as FontSans } from 'next/font/google';
 
-import {siteConfig} from '@/config/site';
+import { siteConfig } from '@/config/site';
+import { absoluteUrl, cn } from '@/utils/utils';
+import { TailwindIndicator } from '@/components/tailwind-indicator';
+import { Toaster } from '@/components/ui/toaster';
 
 const fontSans = FontSans({
     subsets: ['latin'],
@@ -63,7 +65,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang='en' className={cn('bg-white font-sans text-slate-900 antialiased', fontSans.variable)}>
             <head />
-            <body className="min-h-screen">{children}</body>
+            <body className='min-h-screen'>
+                {children}
+                <Toaster />
+                <TailwindIndicator />
+            </body>
         </html>
     );
 }

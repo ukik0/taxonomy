@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import {cn} from '@/utils/utils';
+
+import { cn } from '@/utils/utils';
 
 interface CardProps extends ReactTagProps<'div'> {
     href: string;

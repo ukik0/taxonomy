@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import {Routes} from '@/utils';
-import {cn} from '@/utils/utils';
+import { Routes } from '@/utils';
 import hero from 'public/images/hero.png';
 
-import {siteConfig} from '@/config/site';
-import {buttonVariants} from '@/components/ui/button';
+import { siteConfig } from '@/config/site';
+import { cn } from '@/utils/utils';
+import { buttonVariants } from '@/components/ui/button';
 
 const getGithubProfileStars = async () => {
     try {
@@ -32,7 +32,7 @@ export default async function IndexPage() {
     const stars = await getGithubProfileStars();
 
     return (
-        <main className='flex min-h-screen flex-col items-center justify-between p-24'>
+        <>
             <section className='container grid items-center justify-center gap-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:pb-24 lg:pt-16'>
                 <Image src={hero} width={250} alt='Hero image' priority />
 
@@ -207,6 +207,6 @@ export default async function IndexPage() {
                     </Link>
                 )}
             </section>
-        </main>
+        </>
     );
 }

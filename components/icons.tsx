@@ -9,7 +9,6 @@ import {
     File,
     FileText,
     HelpCircle,
-    type Icon as LucideIcon,
     Image,
     Loader2,
     LucideProps,
@@ -20,7 +19,8 @@ import {
     Trash,
     Twitter,
     User,
-    X
+    X,
+    type Icon as LucideIcon
 } from 'lucide-react';
 
 export type Icon = LucideIcon;

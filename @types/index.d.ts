@@ -1,3 +1,5 @@
+import { Icons } from '@/components/icons';
+
 type ReactTagProps<T> = import('react').ComponentPropsWithRef<T>;
 
 interface SiteConfig {
@@ -17,3 +19,17 @@ interface NavItem {
     disabled?: boolean;
 }
 
+type SidebarNavItem = {
+    title: string;
+    disabled?: boolean;
+    external?: boolean;
+    icon?: keyof typeof Icons;
+} & {
+    href?: string;
+    items: NavLink[];
+};
+
+type DashboardConfig = {
+    mainNav: NavItem[];
+    sidebarNav: SidebarNavItem[];
+};

@@ -1,4 +1,4 @@
-import {useLayoutEffect} from 'react';
+import { useLayoutEffect } from 'react';
 
 export const useLockBody = () => {
     useLayoutEffect((): (() => void) => {

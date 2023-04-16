@@ -1,5 +1,6 @@
-import {ReactNode} from 'react';
-import {cn} from '@/utils/utils';
+import { ReactNode } from 'react';
+
+import { cn } from '@/utils/utils';
 
 interface CalloutProps {
     children: ReactNode;
