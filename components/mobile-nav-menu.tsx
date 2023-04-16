@@ -2,7 +2,7 @@
 
 import {ReactNode} from 'react';
 import Link from 'next/link';
-import {useLockBody} from '@/utils/hooks';
+import {useLockBody} from '@/utils/hooks/useLockBody';
 import {cn} from '@/utils/utils';
 
 import {siteConfig} from '@/config/site';

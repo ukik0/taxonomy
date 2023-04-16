@@ -63,7 +63,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang='en' className={cn('bg-white font-sans text-slate-900 antialiased', fontSans.variable)}>
             <head />
-            <body>{children}</body>
+            <body className="min-h-screen">{children}</body>
         </html>
     );
 }

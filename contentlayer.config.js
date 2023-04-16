@@ -6,6 +6,10 @@ import remarkGfm from 'remark-gfm';
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
+    url: {
+        type: 'string',
+        resolve: (doc) => `/${doc._raw.flattenedPath}`
+    },
     slug: {
         type: 'string',
         resolve: (doc) => `/${doc._raw.flattenedPath}`
