@@ -1,6 +1,6 @@
 'use client';
 
-import {useState} from 'react';
+import {MouseEvent, useState} from 'react';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 import {Routes} from '@/utils';
@@ -24,22 +24,34 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
+import {toast} from "@/utils/hooks/useToast";
 
 interface PostOperationsProps {
     post: Pick<Post, 'id' | 'title'>;
 }
 
-const deletePost = async (id: Post['id']) => {
-    return null
-}
+const deletePost = async (postId: Post['id']) => {
+    const response = await fetch(`/api/posts/${postId}`, {
+        method: "DELETE",
+    })
 
+    if (!response?.ok) {
+        toast({
+            title: 'Something went wrong.',
+            description: 'Your post was not deleted. Please try again.',
+            variant: 'destructive'
+        });
+    }
+
+    return true
+};
 
 export const PostOperations = ({ post }: PostOperationsProps) => {
     const router = useRouter();
     const [showDeleteAlert, setShowDeleteAlert] = useState<boolean>(false);
     const [isDeleteLoading, setIsDeleteLoading] = useState<boolean>(false);
 
-    const handleDeletePost = async (event: Event) => {
+    const handleDeletePost = async (event: MouseEvent) => {
         event.preventDefault();
         setIsDeleteLoading(true);
 

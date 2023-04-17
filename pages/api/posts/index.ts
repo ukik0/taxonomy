@@ -2,9 +2,9 @@ import {NextApiRequest, NextApiResponse} from 'next';
 import {getServerSession} from 'next-auth/next';
 import {z} from 'zod';
 
+import {withMethods} from '@/utils/api-middlewares/with-methods';
 import {authOptions} from '@/utils/auth';
 import {db} from '@/utils/db';
-import {withMethods} from "@/utils/api-middlewares/with-methods";
 
 const postCreateSchema = z.object({
     title: z.string(),

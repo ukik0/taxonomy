@@ -1,6 +1,7 @@
-import { forwardRef } from 'react';
+import {forwardRef} from 'react';
 
-import { cn } from '@/utils/utils';
+import {cn} from '@/utils/utils';
+import {ReactTagProps} from "@/@types";
 
 interface InputProps extends ReactTagProps<'input'> {}
 

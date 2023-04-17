@@ -1,5 +1,5 @@
-import { DashboardConfig } from '@/@types';
-import { Routes } from '@/utils';
+import {DashboardConfig} from '@/@types';
+import {Routes} from '@/utils';
 
 export const dashboardConfig: DashboardConfig = {
     mainNav: [
@@ -21,12 +21,12 @@ export const dashboardConfig: DashboardConfig = {
         },
         {
             title: 'Billing',
-            href: `${Routes.DASHBOARD}/${Routes.BILLING}`,
+            href: `${Routes.DASHBOARD}${Routes.BILLING}`,
             icon: 'billing'
         },
         {
             title: 'Settings',
-            href: `${Routes.DASHBOARD}/${Routes.SETTINGS}`,
+            href: `${Routes.DASHBOARD}${Routes.SETTINGS}`,
             icon: 'settings'
         }
     ]

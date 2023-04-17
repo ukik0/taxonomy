@@ -1,4 +1,4 @@
-import { Icons } from '@/components/icons';
+import {Icons} from '@/components/icons';
 
 type ReactTagProps<T> = import('react').ComponentPropsWithRef<T>;
 
@@ -24,10 +24,16 @@ type SidebarNavItem = {
     disabled?: boolean;
     external?: boolean;
     icon?: keyof typeof Icons;
-} & {
-    href?: string;
-    items: NavLink[];
-};
+} & (
+    | {
+          href: string;
+          items?: never;
+      }
+    | {
+          href?: string;
+          items: NavLink[];
+      }
+);
 
 type DashboardConfig = {
     mainNav: NavItem[];

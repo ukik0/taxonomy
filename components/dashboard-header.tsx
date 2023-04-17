@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import {ReactNode} from 'react';
 
 interface DashboardHeaderProps {
     text: string;
-    children: ReactNode;
+    children?: ReactNode;
     heading: string;
 }
 
