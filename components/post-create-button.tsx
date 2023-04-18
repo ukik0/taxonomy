@@ -1,13 +1,14 @@
 'use client';
 
-import {useState} from 'react';
-import {useRouter} from 'next/navigation';
-import {ReactTagProps} from '@/@types';
+import {useState} from "react";
+import {useRouter} from "next/navigation";
+import {ReactTagProps} from "@/@types";
+import {Routes} from "@/utils";
 
-import {toast} from '@/utils/hooks/useToast';
-import {cn} from '@/utils/utils';
-import {Icons} from '@/components/icons';
-import {Button, buttonVariants} from '@/components/ui/button';
+import {toast} from "@/utils/hooks/useToast";
+import {cn} from "@/utils/utils";
+import {Icons} from "@/components/icons";
+import {Button, buttonVariants} from "@/components/ui/button";
 
 interface PostCreateButtonProps extends ReactTagProps<'button'> {
     className?: string;
@@ -42,7 +43,7 @@ export const PostCreateButton = ({ className, ...props }: PostCreateButtonProps)
 
         setIsLoading(false);
 
-        router.refresh();
+        router.push(`${Routes.EDIT}/${post.id}`);
     };
 
     return (

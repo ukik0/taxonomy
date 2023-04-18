@@ -1,19 +1,19 @@
-import {cache} from 'react';
-import {Metadata} from 'next';
-import {redirect} from 'next/navigation';
-import {Routes} from '@/utils';
-import {User} from '@prisma/client';
+import {cache} from "react";
+import {Metadata} from "next";
+import {redirect} from "next/navigation";
+import {Routes} from "@/utils";
+import {User} from "@prisma/client";
 
-import {authOptions} from '@/utils/auth';
-import {db} from '@/utils/db';
-import {getCurrentUser} from '@/utils/session';
-import {cn} from '@/utils/utils';
-import {EmptyPlaceholder} from '@/components/EmptyPlaceholdre';
-import {DashboardHeader} from '@/components/dashboard-header';
-import {PostCreateButton} from '@/components/post-create-button';
-import {PostItem} from '@/components/post-item';
-import {DashboardShell} from '@/components/shell';
-import {buttonVariants} from '@/components/ui/button';
+import {authOptions} from "@/utils/auth";
+import {db} from "@/utils/db";
+import {getCurrentUser} from "@/utils/session";
+import {cn} from "@/utils/utils";
+import {EmptyPlaceholder} from "@/components/EmptyPlaceholdre";
+import {DashboardHeader} from "@/components/dashboard-header";
+import {PostCreateButton} from "@/components/post-create-button";
+import {PostItem} from "@/components/post-item";
+import {DashboardShell} from "@/components/shell";
+import {buttonVariants} from "@/components/ui/button";
 
 export const metadata: Metadata = {
     title: 'Dashboard',
@@ -44,7 +44,7 @@ export default async function DashboardPage() {
             </DashboardHeader>
 
             <div>
-                {posts?.length ? (
+                {posts.length ? (
                     <div className='divide-y divide-neutral-200 rounded-md border border-slate-200'>
                         {posts.map((post) => (
                             <PostItem key={post.id} post={post} />

@@ -31,5 +31,5 @@ export const Routes: Record<keyof RoutePaths, `/${string}`> = {
     DASHBOARD: '/dashboard',
     BILLING: '/billing',
     SETTINGS: '/settings',
-    EDIT: '/edit',
+    EDIT: '/editor',
 };

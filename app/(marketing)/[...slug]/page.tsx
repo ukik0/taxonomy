@@ -1,16 +1,17 @@
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { allPages } from 'contentlayer/generated';
+import {Metadata} from "next";
+import {notFound} from "next/navigation";
+import {allPages} from "contentlayer/generated";
 
-import { siteConfig } from '@/config/site';
-import { absoluteUrl } from '@/utils/utils';
-import { Mdx } from '@/components/mdx';
+import {siteConfig} from "@/config/site";
+import {absoluteUrl} from "@/utils/utils";
+import {Mdx} from "@/components/mdx";
 
 interface SlugPageProps {
     params: {
         slug: string[];
     };
 }
+
 
 const getPageFromParams = async (params: { slug: string[] }) => {
     const slug = params.slug.join('/');

@@ -1,15 +1,15 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
-import Link from 'next/link';
-import { useSelectedLayoutSegment } from 'next/navigation';
-import { NavItem } from '@/@types';
-import { Routes } from '@/utils';
+import {ReactNode, useState} from "react";
+import Link from "next/link";
+import {useSelectedLayoutSegment} from "next/navigation";
+import {NavItem} from "@/@types";
+import {Routes} from "@/utils";
 
-import { siteConfig } from '@/config/site';
-import { cn } from '@/utils/utils';
-import { Icons } from '@/components/icons';
-import { MobileNavMenu } from '@/components/mobile-nav-menu';
+import {siteConfig} from "@/config/site";
+import {cn} from "@/utils/utils";
+import {Icons} from "@/components/icons";
+import {MobileNavMenu} from "@/components/mobile-nav-menu";
 
 interface NavMenuProps {
     items?: NavItem[];
@@ -51,7 +51,7 @@ export const NavMenu = ({ items, children }: NavMenuProps) => {
                 <span className='font-bold'>Menu</span>
             </button>
 
-            {items && showMobileMenu && <MobileNavMenu items={items}>{children} </MobileNavMenu>}
+            {items && showMobileMenu && <MobileNavMenu items={items}>{children}</MobileNavMenu>}
         </div>
     );
 };
