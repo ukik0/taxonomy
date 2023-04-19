@@ -19,7 +19,7 @@ interface NavItem {
     disabled?: boolean;
 }
 
-type SidebarNavItem = {
+export type SidebarNavItem = {
     title: string;
     disabled?: boolean;
     external?: boolean;
@@ -39,3 +39,14 @@ type DashboardConfig = {
     mainNav: NavItem[];
     sidebarNav: SidebarNavItem[];
 };
+
+export type DocsConfig = {
+    mainNav: NavItem[]
+    sidebarNav: SidebarNavItem[]
+}
+
+export type DashboardConfig = {
+    mainNav: NavItem[]
+    sidebarNav: SidebarNavItem[]
+}
+

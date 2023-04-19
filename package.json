@@ -37,7 +37,9 @@
         "clsx": "^1.2.1",
         "contentlayer": "^0.3.1",
         "date-fns": "^2.29.3",
+        "intersection-observer": "^0.12.2",
         "lucide-react": "^0.144.0",
+        "mdast-util-toc": "^6.1.1",
         "next": "13.2.0",
         "next-auth": "^4.22.0",
         "next-contentlayer": "^0.3.1",
@@ -58,6 +60,7 @@
         "tailwind-merge": "^1.12.0",
         "tailwindcss-animate": "^1.0.5",
         "typescript": "5.0.4",
+        "unist-util-visit": "^4.1.2",
         "zod": "^3.21.4"
     },
     "devDependencies": {

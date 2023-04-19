@@ -1,20 +1,21 @@
 'use client';
 
-import {useCallback, useEffect, useRef, useState} from "react";
-import Link from "next/link";
-import {useRouter} from "next/navigation";
-import {postPatchSchema, Routes} from "@/utils";
-import EditorJS from "@editorjs/editorjs";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {Post} from "@prisma/client";
-import {useForm} from "react-hook-form";
-import TextareaAutosize from "react-textarea-autosize";
-import {z} from "zod";
+import {useCallback, useEffect, useRef, useState} from 'react';
+import Link from 'next/link';
+import {useRouter} from 'next/navigation';
+import {postPatchSchema, Routes} from '@/utils';
+import EditorJS from '@editorjs/editorjs';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {Post} from '@prisma/client';
+import {useForm} from 'react-hook-form';
+import TextareaAutosize from 'react-textarea-autosize';
+import {z} from 'zod';
 
-import {toast} from "@/utils/hooks/useToast";
-import {cn} from "@/utils/utils";
-import {Icons} from "@/components/icons";
-import {buttonVariants} from "@/components/ui/button";
+import {toast} from '@/utils/hooks/useToast';
+import {cn} from '@/utils/utils';
+import {Icons} from '@/components/icons';
+import {buttonVariants} from '@/components/ui/button';
+import {useMounted} from "@/utils/hooks/useMounted";
 
 interface EditorProps {
     post: Pick<Post, 'id' | 'title' | 'content' | 'published'>;
@@ -30,7 +31,7 @@ export const Editor = ({ post }: EditorProps) => {
     const ref = useRef<EditorJS>();
     const router = useRouter();
     const [isSaving, setIsSaving] = useState<boolean>(false);
-    const [isMounted, setIsMounted] = useState<boolean>(false);
+    const isMounted = useMounted()
 
     const initializeEditor = useCallback(async () => {
         const EditorJS = (await import('@editorjs/editorjs')).default;
@@ -65,12 +66,6 @@ export const Editor = ({ post }: EditorProps) => {
             });
         }
     }, [post]);
-
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            setIsMounted(true);
-        }
-    }, []);
 
     useEffect(() => {
         if (isMounted) {
@@ -126,10 +121,8 @@ export const Editor = ({ post }: EditorProps) => {
                 <div className='flex w-full items-center justify-between'>
                     <div className='flex items-center space-x-10'>
                         <Link href={Routes.DASHBOARD} className={cn(buttonVariants({ variant: 'ghost' }))}>
-                            <>
-                                <Icons.chevronLeft className='mr-2 h-4 w-4' />
-                                Back
-                            </>
+                            <Icons.chevronLeft className='mr-2 h-4 w-4' />
+                            Back
                         </Link>
                         <p className='text-sm text-slate-600'>{post.published ? 'Published' : 'Draft'}</p>
                     </div>

@@ -43,6 +43,8 @@ export const PostCreateButton = ({ className, ...props }: PostCreateButtonProps)
 
         setIsLoading(false);
 
+        router.refresh()
+
         router.push(`${Routes.EDIT}/${post.id}`);
     };
 
