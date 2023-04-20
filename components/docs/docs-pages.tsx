@@ -1,8 +1,10 @@
-import Link from 'next/link';
-import {Doc} from 'contentlayer/generated';
+import Link from "next/link";
+import {Doc} from "contentlayer/generated";
 
-import {docsConfig} from '@/config/docs';
-import {Icons} from '@/components/common/icons';
+import {docsConfig} from "@/config/docs";
+import {Icons} from "@/components/common/icons";
+import {flatten} from "@/utils/utils";
+import {slug} from "@/@types";
 
 interface DocsPagerProps {
     doc: Doc;
@@ -13,14 +15,8 @@ interface Item {
     title: string;
 }
 
-// @ts-ignore
-export function flatten(links: { items? }[]) {
-    // return links.reduce((flat, link) => flat.concat(link.items ? flatten(link.items) : link), []);
-    return links.reduce((acc, el) => acc.concat(el.items), []);
-}
-
 function getPagerForDoc(doc: Doc) {
-    const flattenedLinks = [null, ...flatten(docsConfig.sidebarNav), null] as unknown as Item[]
+    const flattenedLinks = [null, ...flatten(docsConfig.sidebarNav as unknown as slug[]), null] as unknown as Item[]
     const activeIndex = flattenedLinks.findIndex((link) => doc.slug === link?.href);
 
     const prev = activeIndex !== 0 ? flattenedLinks[activeIndex - 1] : null;

@@ -1,16 +1,17 @@
 'use client';
 
-import {useEffect, useMemo, useState} from 'react';
+import {useEffect, useMemo, useState} from "react";
 
-import {useMounted} from '@/utils/hooks/useMounted';
-import {TableOfContents} from '@/utils/toc';
-import {cn} from '@/utils/utils';
+import {useMounted} from "@/utils/hooks/useMounted";
+import {TableOfContents} from "@/utils/toc";
+import {cn} from "@/utils/utils";
 
 interface DashboardTableOfContentsProps {
     toc: TableOfContents;
 }
 
 export const DashboardTableOfContents = ({ toc }: DashboardTableOfContentsProps) => {
+
     const itemIds = useMemo(
         () =>
             toc.items

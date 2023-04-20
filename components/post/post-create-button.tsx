@@ -9,6 +9,7 @@ import {toast} from "@/utils/hooks/useToast";
 import {cn} from "@/utils/utils";
 import {Icons} from "@/components/common/icons";
 import {Button, buttonVariants} from "@/components/ui/button";
+import {postsApi} from "@/utils/api/posts";
 
 interface PostCreateButtonProps extends ReactTagProps<'button'> {
     className?: string;
@@ -21,15 +22,7 @@ export const PostCreateButton = ({ className, ...props }: PostCreateButtonProps)
     const handleCreatePost = async () => {
         setIsLoading(true);
 
-        const response = await fetch('/api/posts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                title: 'Untitled Post'
-            })
-        });
+        const response = await postsApi.createPost()
 
         if (!response?.ok) {
             return toast({

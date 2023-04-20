@@ -1,4 +1,4 @@
-import {db} from '@/utils/db';
+import {db} from "@/utils/db";
 
 export const postsApi = {
     getUserPosts: async (id: string) => {
@@ -14,5 +14,21 @@ export const postsApi = {
                 id: postId
             }
         });
+    },
+    createPost: async () => {
+        return fetch('/api/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: 'Untitled Post'
+            })
+        });
+    },
+    deletePost: async (postId: string) => {
+        return fetch(`/api/posts/${postId}`, {
+            method: "DELETE",
+        })
     }
 };

@@ -1,12 +1,12 @@
 'use client';
 
-import {MouseEvent, useState} from 'react';
-import Link from 'next/link';
-import {useRouter} from 'next/navigation';
-import {Routes} from '@/utils';
-import {Post} from '@prisma/client';
+import {MouseEvent, useState} from "react";
+import Link from "next/link";
+import {useRouter} from "next/navigation";
+import {Routes} from "@/utils";
+import {Post} from "@prisma/client";
 
-import {Icons} from '@/components/common/icons';
+import {Icons} from "@/components/common/icons";
 import {
     AlertDialog,
     AlertDialogAction,
@@ -16,24 +16,23 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle
-} from '@/components/ui/alert-dialog';
+} from "@/components/ui/alert-dialog";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
+} from "@/components/ui/dropdown-menu";
 import {toast} from "@/utils/hooks/useToast";
+import {postsApi} from "@/utils/api/posts";
 
 interface PostOperationsProps {
     post: Pick<Post, 'id' | 'title'>;
 }
 
 const deletePost = async (postId: Post['id']) => {
-    const response = await fetch(`/api/posts/${postId}`, {
-        method: "DELETE",
-    })
+    const response = await postsApi.deletePost(postId)
 
     if (!response?.ok) {
         toast({

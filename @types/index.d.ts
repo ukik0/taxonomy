@@ -1,4 +1,4 @@
-import {Icons} from '@/components/common/icons';
+import {Icons} from "@/components/common/icons";
 
 type ReactTagProps<T> = import('react').ComponentPropsWithRef<T>;
 
@@ -50,3 +50,9 @@ export type DashboardConfig = {
     sidebarNav: SidebarNavItem[]
 }
 
+
+interface slug {
+    url: string
+    items: string
+    title: string
+}

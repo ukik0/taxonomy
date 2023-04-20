@@ -1,13 +1,13 @@
-import {Metadata} from 'next';
-import {notFound} from 'next/navigation';
-import {allDocs} from 'contentlayer/generated';
+import {Metadata} from "next";
+import {notFound} from "next/navigation";
+import {allDocs} from "contentlayer/generated";
 
-import {getTableOfContents} from '@/utils/toc';
-import {absoluteUrl} from '@/utils/utils';
-import {DocsHeader} from '@/components/docs/docs-header';
-import {DocsPager} from '@/components/docs/docs-pages';
-import {Mdx} from '@/components/common/mdx';
-import {DashboardTableOfContents} from '@/components/common/toc';
+import {getTableOfContents} from "@/utils/toc";
+import {absoluteUrl} from "@/utils/utils";
+import {Mdx} from "@/components/common/mdx";
+import {DashboardTableOfContents} from "@/components/common/toc";
+import {DocsHeader} from "@/components/docs/docs-header";
+import {DocsPager} from "@/components/docs/docs-pages";
 
 interface DocsPageProps {
     params: {

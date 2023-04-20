@@ -1,8 +1,8 @@
 // @ts-nocheck
 
-import {toc} from 'mdast-util-toc';
-import {remark} from 'remark';
-import {visit} from 'unist-util-visit';
+import {toc} from "mdast-util-toc";
+import {remark} from "remark";
+import {visit} from "unist-util-visit";
 
 const textTypes = ['text', 'emphasis', 'strong', 'inlineCode'];
 
