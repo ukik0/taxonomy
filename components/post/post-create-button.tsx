@@ -7,7 +7,7 @@ import {Routes} from "@/utils";
 
 import {toast} from "@/utils/hooks/useToast";
 import {cn} from "@/utils/utils";
-import {Icons} from "@/components/icons";
+import {Icons} from "@/components/common/icons";
 import {Button, buttonVariants} from "@/components/ui/button";
 
 interface PostCreateButtonProps extends ReactTagProps<'button'> {

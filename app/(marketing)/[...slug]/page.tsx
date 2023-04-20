@@ -1,10 +1,9 @@
 import {Metadata} from "next";
-import {notFound} from "next/navigation";
 import {allPages} from "contentlayer/generated";
 
 import {siteConfig} from "@/config/site";
-import {absoluteUrl} from "@/utils/utils";
-import {Mdx} from "@/components/mdx";
+import {absoluteUrl, getPageFromParams} from "@/utils/utils";
+import {Mdx} from "@/components/common/mdx";
 
 interface SlugPageProps {
     params: {
@@ -12,15 +11,6 @@ interface SlugPageProps {
     };
 }
 
-
-const getPageFromParams = async (params: { slug: string[] }) => {
-    const slug = params.slug.join('/');
-    const page = allPages.find((page) => page.slugAsParams === slug);
-
-    if (!page) return notFound();
-
-    return page;
-};
 
 export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
     const page = await getPageFromParams(params);

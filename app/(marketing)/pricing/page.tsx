@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { Routes } from '@/utils';
+import {Routes} from '@/utils';
 
-import { cn } from '@/utils/utils';
-import { Icons } from '@/components/icons';
-import { buttonVariants } from '@/components/ui/button';
+import {cn} from '@/utils/utils';
+import {Icons} from '@/components/common/icons';
+import {buttonVariants} from '@/components/ui/button';
 
 export default async function PricingPage() {
     return (

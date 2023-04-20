@@ -1,11 +1,11 @@
-import { ReactNode } from 'react';
-import { notFound } from 'next/navigation';
+import {ReactNode} from 'react';
+import {notFound} from 'next/navigation';
 
-import { dashboardConfig } from '@/utils/constants/dashboard';
-import { getCurrentUser } from '@/utils/session';
-import { DashboardNav } from '@/components/dashboard-nav';
-import { NavMenu } from '@/components/nav-menu';
-import { UserNav } from '@/components/user-nav';
+import {dashboardConfig} from '@/utils/constants/dashboard';
+import {getCurrentUser} from '@/utils/session';
+import {DashboardNav} from '@/components/dashboard/dashboard-nav';
+import {NavMenu} from '@/components/common/layout/nav-menu';
+import {UserNav} from '@/components/dashboard/user-nav';
 
 interface DashboardLayoutProps {
     children: ReactNode;

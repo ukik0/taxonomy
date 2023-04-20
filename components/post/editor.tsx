@@ -13,7 +13,7 @@ import {z} from 'zod';
 
 import {toast} from '@/utils/hooks/useToast';
 import {cn} from '@/utils/utils';
-import {Icons} from '@/components/icons';
+import {Icons} from '@/components/common/icons';
 import {buttonVariants} from '@/components/ui/button';
 import {useMounted} from "@/utils/hooks/useMounted";
 

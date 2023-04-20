@@ -2,7 +2,7 @@ import Link from 'next/link';
 import {Doc} from 'contentlayer/generated';
 
 import {docsConfig} from '@/config/docs';
-import {Icons} from '@/components/icons';
+import {Icons} from '@/components/common/icons';
 
 interface DocsPagerProps {
     doc: Doc;

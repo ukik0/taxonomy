@@ -1,13 +1,14 @@
-import Link from "next/link";
-import {redirect} from "next/navigation";
+import Link from 'next/link';
+import {redirect} from 'next/navigation';
+import {Routes} from '@/utils';
 
-import {authOptions} from "@/utils/auth";
-import {getCurrentUser} from "@/utils/session";
-import {cn} from "@/utils/utils";
-import {DashboardHeader} from "@/components/dashboard-header";
-import {DashboardShell} from "@/components/shell";
-import {buttonVariants} from "@/components/ui/button";
-import {Card} from "@/components/ui/card";
+import {authOptions} from '@/utils/auth';
+import {getCurrentUser} from '@/utils/session';
+import {cn} from '@/utils/utils';
+import {DashboardHeader} from '@/components/dashboard/dashboard-header';
+import {DashboardShell} from '@/components/dashboard/shell';
+import {buttonVariants} from '@/components/ui/button';
+import {Card} from '@/components/ui/card';
 
 export const metadata = {
     title: 'Billing',
@@ -17,9 +18,7 @@ export const metadata = {
 export default async function BillingPage() {
     const user = await getCurrentUser();
 
-    if (!user) {
-        redirect(authOptions?.pages?.signIn || '/login');
-    }
+    if (!user) return redirect(authOptions?.pages?.signIn || Routes.LOGIN);
 
     return (
         <DashboardShell>

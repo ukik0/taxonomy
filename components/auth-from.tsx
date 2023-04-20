@@ -1,19 +1,20 @@
 'use client';
 
-import { useState } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { userAuthSchema } from '@/utils';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { signIn } from 'next-auth/react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
+import {useState} from 'react';
+import {useSearchParams} from 'next/navigation';
+import {ReactTagProps} from '@/@types';
+import {userAuthSchema} from '@/utils';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {signIn} from 'next-auth/react';
+import {useForm} from 'react-hook-form';
+import {z} from 'zod';
 
-import { toast } from '@/utils/hooks/useToast';
-import { cn } from '@/utils/utils';
-import { Icons } from '@/components/icons';
-import { Button, buttonVariants } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import {toast} from '@/utils/hooks/useToast';
+import {cn} from '@/utils/utils';
+import {Icons} from '@/components/common/icons';
+import {Button, buttonVariants} from '@/components/ui/button';
+import {Input} from '@/components/ui/input';
+import {Label} from '@/components/ui/label';
 
 interface AuthFormProps extends ReactTagProps<'div'> {}
 

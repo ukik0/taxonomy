@@ -1,11 +1,11 @@
-import { Metadata } from 'next';
+import {Metadata} from 'next';
 import Link from 'next/link';
-import { Routes } from '@/utils';
+import {Routes} from '@/utils';
 
-import { cn } from '@/utils/utils';
-import { AuthForm } from '@/components/auth-from';
-import { Icons } from '@/components/icons';
-import { buttonVariants } from '@/components/ui/button';
+import {cn} from '@/utils/utils';
+import {AuthForm} from '@/components/auth-from';
+import {Icons} from '@/components/common/icons';
+import {buttonVariants} from '@/components/ui/button';
 
 export const metadata: Metadata = {
     title: 'Login',

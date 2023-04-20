@@ -10,12 +10,12 @@ import {z} from 'zod';
 
 import {toast} from '@/utils/hooks/useToast';
 import {cn} from '@/utils/utils';
-import {Icons} from '@/components/icons';
+import {Icons} from '@/components/common/icons';
 import {buttonVariants} from '@/components/ui/button';
 import {Card} from '@/components/ui/card';
 import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
-import {ReactTagProps} from '../@types';
+import {ReactTagProps} from '../../@types';
 
 interface UserNameFormProps extends ReactTagProps<'form'> {
     user: Pick<User, 'id' | 'name'>;

@@ -1,10 +1,11 @@
 import {redirect} from 'next/navigation';
+import {Routes} from '@/utils';
 
 import {authOptions} from '@/utils/auth';
 import {getCurrentUser} from '@/utils/session';
-import {DashboardHeader} from '@/components/dashboard-header';
-import {DashboardShell} from '@/components/shell';
-import {UserNameForm} from '@/components/user-name-form';
+import {DashboardHeader} from '@/components/dashboard/dashboard-header';
+import {DashboardShell} from '@/components/dashboard/shell';
+import {UserNameForm} from '@/components/dashboard/user-name-form';
 
 export const metadata = {
     title: 'Settings',
@@ -14,9 +15,7 @@ export const metadata = {
 export default async function SettingsPage() {
     const user = await getCurrentUser();
 
-    if (!user) {
-        redirect(authOptions?.pages?.signIn || '/login');
-    }
+    if (!user) return redirect(authOptions?.pages?.signIn || Routes.LOGIN);
 
     return (
         <DashboardShell>

@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { ReactTagProps } from '@/@types';
-import { Routes } from '@/utils';
-import { User } from 'next-auth';
-import { signOut } from 'next-auth/react';
+import {ReactTagProps} from '@/@types';
+import {Routes} from '@/utils';
+import {User} from 'next-auth';
+import {signOut} from 'next-auth/react';
 
 import {
     DropdownMenu,
@@ -13,7 +13,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import { UserAvatar } from '@/components/user-avatar';
+import {UserAvatar} from '@/components/dashboard/user-avatar';
 
 interface UserNavProps extends ReactTagProps<'div'> {
     user: Pick<User, 'name' | 'image' | 'email'>;

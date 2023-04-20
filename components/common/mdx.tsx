@@ -1,10 +1,10 @@
-import { HTMLAttributes, ImgHTMLAttributes } from 'react';
+import {HTMLAttributes, ImgHTMLAttributes} from 'react';
 import Image from 'next/image';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import {useMDXComponent} from 'next-contentlayer/hooks';
 
-import { cn } from '@/utils/utils';
-import { Callout } from '@/components/callout';
-import { Card } from '@/components/card';
+import {cn} from '@/utils/utils';
+import {Callout} from '@/components/common/callout';
+import {Card} from '@/components/common/card';
 
 const components = {
     h1: ({ className, ...props }: HTMLAttributes<HTMLHeadElement>) => (

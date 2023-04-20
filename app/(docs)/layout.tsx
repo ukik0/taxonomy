@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 import {docsConfig} from '@/config/docs';
 import {siteConfig} from '@/config/site';
-import {DocsSidebar} from '@/components/docs-sidebar';
-import {Footer} from '@/components/footer';
-import {Icons} from '@/components/icons';
-import {NavMenu} from '@/components/nav-menu';
-import {Search} from '@/components/search';
+import {DocsSidebar} from '@/components/docs/docs-sidebar';
+import {Footer} from '@/components/common/layout/footer';
+import {Icons} from '@/components/common/icons';
+import {NavMenu} from '@/components/common/layout/nav-menu';
+import {Search} from '@/components/dashboard/search';
 
 interface DocsLayoutProps {
     children: ReactNode;

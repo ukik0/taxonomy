@@ -3,7 +3,7 @@ import {allGuides} from 'contentlayer/generated';
 import {compareDesc} from 'date-fns';
 
 import {formatDate} from '@/utils/utils';
-import {DocsHeader} from '@/components/docs-header';
+import {DocsHeader} from '@/components/docs/docs-header';
 
 export const metadata = {
     title: 'Guides',

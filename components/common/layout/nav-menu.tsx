@@ -8,8 +8,8 @@ import {Routes} from "@/utils";
 
 import {siteConfig} from "@/config/site";
 import {cn} from "@/utils/utils";
-import {Icons} from "@/components/icons";
-import {MobileNavMenu} from "@/components/mobile-nav-menu";
+import {Icons} from "@/components/common/icons";
+import {MobileNavMenu} from "@/components/common/layout/mobile-nav-menu";
 
 interface NavMenuProps {
     items?: NavItem[];

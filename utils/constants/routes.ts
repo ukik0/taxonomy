@@ -14,6 +14,7 @@ interface RoutePaths {
     BILLING: string;
     SETTINGS: string;
     EDIT: string;
+    GUIDE: string;
 }
 
 export const Routes: Record<keyof RoutePaths, `/${string}`> = {
@@ -32,4 +33,5 @@ export const Routes: Record<keyof RoutePaths, `/${string}`> = {
     BILLING: '/billing',
     SETTINGS: '/settings',
     EDIT: '/editor',
+    GUIDE: '/guides',
 };

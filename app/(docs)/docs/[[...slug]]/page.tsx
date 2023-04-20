@@ -4,10 +4,10 @@ import {allDocs} from 'contentlayer/generated';
 
 import {getTableOfContents} from '@/utils/toc';
 import {absoluteUrl} from '@/utils/utils';
-import {DocsHeader} from '@/components/docs-header';
-import {DocsPager} from '@/components/docs-pages';
-import {Mdx} from '@/components/mdx';
-import {DashboardTableOfContents} from '@/components/toc';
+import {DocsHeader} from '@/components/docs/docs-header';
+import {DocsPager} from '@/components/docs/docs-pages';
+import {Mdx} from '@/components/common/mdx';
+import {DashboardTableOfContents} from '@/components/common/toc';
 
 interface DocsPageProps {
     params: {

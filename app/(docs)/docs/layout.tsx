@@ -1,7 +1,7 @@
 import {ReactNode} from 'react';
 
 import {docsConfig} from '@/config/docs';
-import {DocsSidebar} from '@/components/docs-sidebar';
+import {DocsSidebar} from '@/components/docs/docs-sidebar';
 
 interface DocsLayoutProps {
     children: ReactNode;

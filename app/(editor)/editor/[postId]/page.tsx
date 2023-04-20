@@ -1,11 +1,10 @@
 import {notFound, redirect} from "next/navigation";
 import {Routes} from "@/utils";
-import {Post} from "@prisma/client";
 
 import {authOptions} from "@/utils/auth";
-import {db} from "@/utils/db";
 import {getCurrentUser} from "@/utils/session";
-import {Editor} from "@/components/editor";
+import {Editor} from "@/components/post/editor";
+import {postsApi} from "@/utils/api/posts";
 
 interface EditPostPageProps {
     params: {
@@ -13,24 +12,14 @@ interface EditPostPageProps {
     };
 }
 
-async function getCurrentPost(postId: Post['id']) {
-    return db.post.findUnique({
-        where: {
-            id: postId
-        }
-    });
-}
-
 export default async function EditPostPage({ params }: EditPostPageProps) {
     const user = await getCurrentUser();
 
     if (!user) redirect(authOptions?.pages?.signIn || Routes.LOGIN);
 
-    const post = await getCurrentPost(params.postId);
+    const post = await postsApi.getCurrentPost(params.postId);
 
-    if (!post) {
-        notFound();
-    }
+    if (!post) return notFound();
 
     return (
         <Editor

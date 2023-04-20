@@ -1,9 +1,10 @@
 import * as React from 'react';
 
-import { cn } from '@/utils/utils';
-import { Icons } from '@/components/icons';
+import {cn} from '@/utils/utils';
+import {Icons} from '@/components/common/icons';
+import {ReactTagProps} from "@/@types";
 
-interface EmptyPlaceholderProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface EmptyPlaceholderProps extends ReactTagProps<'div'> {}
 
 export function EmptyPlaceholder({ className, children, ...props }: EmptyPlaceholderProps) {
     return (

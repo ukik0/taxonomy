@@ -1,11 +1,11 @@
 import '@/styles/globals.css';
-import { ReactNode } from 'react';
-import { Inter as FontSans } from 'next/font/google';
+import {ReactNode} from 'react';
+import {Inter as FontSans} from 'next/font/google';
 
-import { siteConfig } from '@/config/site';
-import { absoluteUrl, cn } from '@/utils/utils';
-import { TailwindIndicator } from '@/components/tailwind-indicator';
-import { Toaster } from '@/components/ui/toaster';
+import {siteConfig} from '@/config/site';
+import {absoluteUrl, cn} from '@/utils/utils';
+import {TailwindIndicator} from '@/components/ui/tailwind-indicator';
+import {Toaster} from '@/components/ui/toaster';
 
 const fontSans = FontSans({
     subsets: ['latin'],

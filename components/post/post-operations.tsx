@@ -6,7 +6,7 @@ import {useRouter} from 'next/navigation';
 import {Routes} from '@/utils';
 import {Post} from '@prisma/client';
 
-import {Icons} from '@/components/icons';
+import {Icons} from '@/components/common/icons';
 import {
     AlertDialog,
     AlertDialogAction,
