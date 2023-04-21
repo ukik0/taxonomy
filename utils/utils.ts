@@ -1,10 +1,10 @@
-import {notFound} from "next/navigation";
-import {slug} from "@/@types";
-import {ClassValue, clsx} from "clsx";
-import {allDocuments} from "contentlayer/generated";
-import {twMerge} from "tailwind-merge";
+import {notFound} from 'next/navigation';
+import {slug} from '@/@types';
+import {ClassValue, clsx} from 'clsx';
+import {allDocuments} from 'contentlayer/generated';
+import {twMerge} from 'tailwind-merge';
 
-import {getTableOfContents} from "@/utils/toc";
+import {getTableOfContents} from '@/utils/toc';
 
 export const absoluteUrl = (path: string) => `${process.env.NEXT_PUBLIC_APP_URL}${path}`;
 
@@ -32,30 +32,34 @@ export const getPageFromParams = (params: { slug: string[] }) => {
 export const getTitlesFromPages = async () => {
     return await Promise.all(
         allDocuments
-            .map(async (page) => await getTableOfContents(page.body.raw))
-            .filter(Boolean)
+            .filter(
+                (page) => page.title !== 'Not Implemented' && (page.type === 'Doc' || page.type === 'Guide')
+            )
+            .map(async (page) => ({
+                title: page.type,
+                url: page.url,
+                content: await getTableOfContents(page.body.raw)
+            }))
             .map(async (item) => {
                 const Item = await item;
 
-                if (Item.items) {
-                    Item.items.map((item) => item.title);
-                }
-
-                return item;
+                return Item;
             })
-            .flat()
     );
 };
+
+const flat = (item: slug['content']['items'][]) => item?.map((el) => el).flat();
 
 export const flatten = (slugs: slug[]): any => {
     return slugs
         .reduce(
-            (flat, link) =>
-                flat.concat(
-                    link.items as any
-                    // ? flatten(link.items as unknown as slug[])
-                    // : link
-                ),
+            (acc, el) =>
+                acc.concat({
+                    // @ts-ignore
+                    title: el.title,
+                    url: el.url,
+                    items: flat(el.content?.items as unknown as slug['content']['items'][])
+                }),
             []
         )
         .filter(Boolean);

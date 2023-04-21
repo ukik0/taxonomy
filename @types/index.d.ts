@@ -50,9 +50,25 @@ export type DashboardConfig = {
     sidebarNav: SidebarNavItem[]
 }
 
-
-interface slug {
+type Title = "Doc" | 'Guides'
+type Items = {
     url: string
-    items: string
+    title: Title
+}
+interface slug {
+    title: Title
+    url: string
+    content: {
+        items: Items
+    }
+}
+
+type SlugItems = {
     title: string
+    url: string
+    items: SlugItems[]
+}
+export interface SlugItem {
+    items: SlugItems[]
+    url: string
 }

@@ -9,6 +9,7 @@ import {
     File,
     FileText,
     HelpCircle,
+    type Icon as LucideIcon,
     Image,
     Loader2,
     LucideProps,
@@ -19,8 +20,7 @@ import {
     Trash,
     Twitter,
     User,
-    X,
-    type Icon as LucideIcon
+    X
 } from 'lucide-react';
 
 export type Icon = LucideIcon;
@@ -44,6 +44,20 @@ export const Icons = {
     arrowRight: ArrowRight,
     help: HelpCircle,
     pizza: Pizza,
+    ellipse: ({ ...props }: LucideProps) => (
+        <svg
+            aria-hidden='true'
+            focusable='false'
+            data-prefix='fab'
+            data-icon='github'
+            role='img'
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 496 512'
+            {...props}
+        >
+            <circle cx='12' cy='12' r='10'></circle>
+        </svg>
+    ),
     gitHub: ({ ...props }: LucideProps) => (
         <svg
             aria-hidden='true'
