@@ -1,8 +1,8 @@
-import {useRouter} from 'next/navigation';
-import {SlugItem as Slug} from '@/@types';
+import {useRouter} from "next/navigation";
+import {SlugItem as Slug} from "@/@types";
 
-import {cn} from '@/utils/utils';
-import {Button, buttonVariants} from '@/components/ui/button';
+import {cn} from "@/utils/utils";
+import {Button, buttonVariants} from "@/components/ui/button";
 
 interface SlugItemProps {
     slug: Slug;
@@ -37,7 +37,7 @@ export const SlugItem = ({ slug, level = 1 }: SlugItemProps) => {
                                 size: 'sm',
                                 variant: 'link',
                                 className:
-                                    'text-[15px] font-bold tracking-tight text-slate-500 transition-colors hover:text-slate-900'
+                                    'text-[15px] font-bold bg-transparent text-foreground transition-colors hover:text-slate-900'
                             })}
                             disabled={level !== 1}
                         >

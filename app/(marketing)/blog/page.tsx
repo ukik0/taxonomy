@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { allPosts } from 'contentlayer/generated';
-import { compareDesc } from 'date-fns';
+import Image from "next/image";
+import Link from "next/link";
+import {allPosts} from "contentlayer/generated";
+import {compareDesc} from "date-fns";
 
-import { formatDate } from '@/utils/utils';
+import {formatDate} from "@/utils/utils";
 
 export const metadata = {
     title: 'Blog'
@@ -18,10 +18,10 @@ export default async function BlogPage() {
         <div className='container max-w-4xl py-6 lg:py-10'>
             <div className='flex flex-col items-center gap-4 md:flex-row md:justify-between md:gap-8'>
                 <div className='flex-1 space-y-4'>
-                    <h1 className='inline-block text-4xl font-extrabold tracking-tight text-slate-900 lg:text-5xl'>
+                    <h1 className='inline-block font-heading text-4xl tracking-tight lg:text-5xl'>
                         Blog
                     </h1>
-                    <p className='text-xl text-slate-600'>
+                    <p className='text-xl text-muted-foreground'>
                         A blog built using Contentlayer. Posts are written in MDX.
                     </p>
                 </div>
@@ -29,7 +29,7 @@ export default async function BlogPage() {
             <hr className='my-8 border-slate-200' />
 
             <div className='grid gap-10 sm:grid-cols-2'>
-                {posts.map((post, index) => (
+                {posts.map((post) => (
                     <article key={post._id} className='group relative flex flex-col space-y-2'>
                         {post.image && (
                             <Image
@@ -44,9 +44,9 @@ export default async function BlogPage() {
 
                         <h2 className='text-2xl font-extrabold'>{post.title}</h2>
 
-                        {post.description && <p className='text-slate-600'>{post.description}</p>}
+                        {post.description && <p className='text-muted-foreground'>{post.description}</p>}
 
-                        {post.date && <p className='text-sm text-slate-600'>{formatDate(post.date)}</p>}
+                        {post.date && <p className='text-sm text-muted-foreground'>{formatDate(post.date)}</p>}
 
                         <Link href={post.slug} className='absolute inset-0'>
                             <span className='sr-only'>View Article</span>

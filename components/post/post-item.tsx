@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import {Post} from '@prisma/client';
+import Link from "next/link";
+import {Post} from "@prisma/client";
 
-import {formatDate} from '@/utils/utils';
-import {PostOperations} from '@/components/post/post-operations';
-import {Skeleton} from '@/components/ui/skeleton';
+import {formatDate} from "@/utils/utils";
+import {PostOperations} from "@/components/post/post-operations";
+import {Skeleton} from "@/components/ui/skeleton";
 
 interface PostItemProps {
     post: Pick<Post, 'id' | 'title' | 'createdAt'>;
@@ -17,7 +17,9 @@ export const PostItem = ({ post }: PostItemProps) => {
                     {post.title}
                 </Link>
                 <div>
-                    <p className='text-sm text-slate-600'>{formatDate(post.createdAt?.toDateString())}</p>
+                    <p className='text-sm text-muted-foreground'>
+                        {formatDate(post.createdAt?.toDateString())}
+                    </p>
                 </div>
             </div>
             <PostOperations post={{ id: post.id, title: post.title }} />

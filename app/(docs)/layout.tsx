@@ -1,13 +1,13 @@
-import {ReactNode} from 'react';
-import Link from 'next/link';
+import {ReactNode} from "react";
+import Link from "next/link";
 
-import {docsConfig} from '@/config/docs';
-import {siteConfig} from '@/config/site';
-import {DocsSidebar} from '@/components/docs/docs-sidebar';
-import {Footer} from '@/components/common/layout/footer';
-import {Icons} from '@/components/common/icons';
-import {NavMenu} from '@/components/common/layout/nav-menu';
-import {Search} from '@/components/dashboard/search';
+import {docsConfig} from "@/config/docs";
+import {siteConfig} from "@/config/site";
+import {Icons} from "@/components/common/icons";
+import {Footer} from "@/components/common/layout/footer";
+import {NavMenu} from "@/components/common/layout/nav-menu";
+import {Search} from "@/components/dashboard/search";
+import {DocsSidebar} from "@/components/docs/docs-sidebar";
 
 interface DocsLayoutProps {
     children: ReactNode;
@@ -16,7 +16,7 @@ interface DocsLayoutProps {
 export default function DocsLayout({ children }: DocsLayoutProps) {
     return (
         <div className='flex min-h-screen flex-col'>
-            <header className='sticky top-0 z-40 w-full border-b border-b-slate-200 bg-white'>
+            <header className='sticky top-0 z-40 w-full border-b bg-background'>
                 <div className='container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0'>
                     <NavMenu items={docsConfig.mainNav}>
                         <DocsSidebar items={docsConfig.sidebarNav} />
@@ -35,7 +35,7 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
                 </div>
             </header>
             <div className='container flex-1'>{children}</div>
-            <Footer />
+            <Footer className='border-t' />
         </div>
     );
 }

@@ -17,8 +17,9 @@ interface NavMenuProps {
 }
 
 export const NavMenu = ({ items, children }: NavMenuProps) => {
-    const segment = useSelectedLayoutSegment();
     const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+
+    const segment = useSelectedLayoutSegment();
 
     return (
         <div className='flex gap-6 md:gap-8'>
@@ -31,11 +32,13 @@ export const NavMenu = ({ items, children }: NavMenuProps) => {
                     {items?.map((item) => (
                         <Link
                             key={item.title}
-                            href={item.disabled ? '#' : item.href}
+                            href={item.disabled ? "#" : item.href}
                             className={cn(
-                                'flex items-center text-lg font-semibold text-slate-600 sm:text-sm',
-                                item.href.startsWith(`/${segment}`) && 'text-slate-900',
-                                item.disabled && 'cursor-not-allowed opacity-80'
+                                "flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
+                                item.href.startsWith(`/${segment}`)
+                                    ? "text-foreground"
+                                    : "text-foreground/60",
+                                item.disabled && "cursor-not-allowed opacity-80"
                             )}
                         >
                             {item.title}

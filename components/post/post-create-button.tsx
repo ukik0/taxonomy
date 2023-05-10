@@ -45,7 +45,7 @@ export const PostCreateButton = ({ className, ...props }: PostCreateButtonProps)
         <Button
             onClick={handleCreatePost}
             className={cn(
-                buttonVariants(),
+                buttonVariants({variant: 'outline'}),
                 {
                     'cursor-not-allowed opacity-60': isLoading
                 },

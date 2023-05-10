@@ -1,19 +1,17 @@
-import {cache} from 'react';
-import {Metadata} from 'next';
-import {redirect} from 'next/navigation';
-import {Routes} from '@/utils';
-import {User} from '@prisma/client';
+import {cache} from "react";
+import {Metadata} from "next";
+import {redirect} from "next/navigation";
+import {Routes} from "@/utils";
+import {User} from "@prisma/client";
 
-import {postsApi} from '@/utils/api/posts';
-import {authOptions} from '@/utils/auth';
-import {getCurrentUser} from '@/utils/session';
-import {cn} from '@/utils/utils';
-import {DashboardHeader} from '@/components/dashboard/dashboard-header';
-import {DashboardShell} from '@/components/dashboard/shell';
-import {EmptyPlaceholder} from '@/components/post/empty-placeholdre';
-import {PostCreateButton} from '@/components/post/post-create-button';
-import {PostItem} from '@/components/post/post-item';
-import {buttonVariants} from '@/components/ui/button';
+import {postsApi} from "@/utils/api/posts";
+import {authOptions} from "@/utils/auth";
+import {getCurrentUser} from "@/utils/session";
+import {DashboardHeader} from "@/components/dashboard/dashboard-header";
+import {DashboardShell} from "@/components/dashboard/shell";
+import {EmptyPlaceholder} from "@/components/post/empty-placeholdre";
+import {PostCreateButton} from "@/components/post/post-create-button";
+import {PostItem} from "@/components/post/post-item";
 
 export const metadata: Metadata = {
     title: 'Dashboard',
@@ -31,13 +29,12 @@ export default async function DashboardPage() {
 
     return (
         <DashboardShell>
-            <DashboardHeader text={'Create and manage posts.'} heading={'Posts'}>
+            <DashboardHeader heading='Posts' text='Create and manage posts.'>
                 <PostCreateButton />
             </DashboardHeader>
-
             <div>
-                {posts.length ? (
-                    <div className='divide-y divide-neutral-200 rounded-md border border-slate-200'>
+                {posts?.length ? (
+                    <div className='divide-y divide-border rounded-md border'>
                         {posts.map((post) => (
                             <PostItem key={post.id} post={post} />
                         ))}
@@ -49,9 +46,7 @@ export default async function DashboardPage() {
                         <EmptyPlaceholder.Description>
                             You don&apos;t have any posts yet. Start creating content.
                         </EmptyPlaceholder.Description>
-                        <PostCreateButton
-                            className={cn(buttonVariants({ variant: 'outline' }), 'text-slate-900')}
-                        />
+                        <PostCreateButton/>
                     </EmptyPlaceholder>
                 )}
             </div>

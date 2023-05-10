@@ -1,21 +1,21 @@
 'use client';
 
-import {useCallback, useEffect, useRef, useState} from 'react';
-import Link from 'next/link';
-import {useRouter} from 'next/navigation';
-import {postPatchSchema, Routes} from '@/utils';
-import EditorJS from '@editorjs/editorjs';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {Post} from '@prisma/client';
-import {useForm} from 'react-hook-form';
-import TextareaAutosize from 'react-textarea-autosize';
-import {z} from 'zod';
+import {useCallback, useEffect, useRef, useState} from "react";
+import Link from "next/link";
+import {useRouter} from "next/navigation";
+import {postPatchSchema, Routes} from "@/utils";
+import EditorJS from "@editorjs/editorjs";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {Post} from "@prisma/client";
+import {useForm} from "react-hook-form";
+import TextareaAutosize from "react-textarea-autosize";
+import {z} from "zod";
 
-import {toast} from '@/utils/hooks/useToast';
-import {cn} from '@/utils/utils';
-import {Icons} from '@/components/common/icons';
-import {buttonVariants} from '@/components/ui/button';
 import {useMounted} from "@/utils/hooks/useMounted";
+import {toast} from "@/utils/hooks/useToast";
+import {cn} from "@/utils/utils";
+import {Icons} from "@/components/common/icons";
+import {buttonVariants} from "@/components/ui/button";
 
 interface EditorProps {
     post: Pick<Post, 'id' | 'title' | 'content' | 'published'>;
@@ -31,7 +31,7 @@ export const Editor = ({ post }: EditorProps) => {
     const ref = useRef<EditorJS>();
     const router = useRouter();
     const [isSaving, setIsSaving] = useState<boolean>(false);
-    const isMounted = useMounted()
+    const isMounted = useMounted();
 
     const initializeEditor = useCallback(async () => {
         const EditorJS = (await import('@editorjs/editorjs')).default;
@@ -137,12 +137,12 @@ export const Editor = ({ post }: EditorProps) => {
                         id='title'
                         defaultValue={post.title}
                         placeholder='Post title'
-                        className='w-full resize-none appearance-none overflow-hidden text-5xl font-bold focus:outline-none'
+                        className='w-full text-foreground resize-none appearance-none overflow-hidden bg-transparent text-5xl font-bold focus:outline-none'
                         {...register('title')}
                     />
                     <div id='editor' className='min-h-[500px]' />
                     <p className='text-sm text-gray-500'>
-                        Use <kbd className='rounded-md border bg-slate-50 px-1 text-xs uppercase'>Tab</kbd> to
+                        Use <kbd className='rounded-md border bg-muted px-1 text-xs uppercase'>Tab</kbd> to
                         open the command menu.
                     </p>
                 </div>

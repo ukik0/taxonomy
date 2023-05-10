@@ -5,7 +5,7 @@ import hero from '@/public/images/hero.png';
 import {Routes} from '@/utils';
 
 import {cn} from '@/utils/utils';
-import {AuthForm} from '@/components/auth-from';
+import {AuthForm} from '@/components/common/auth-form';
 import {Icons} from '@/components/common/icons';
 import {buttonVariants} from '@/components/ui/button';
 

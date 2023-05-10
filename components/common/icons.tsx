@@ -11,17 +11,20 @@ import {
     HelpCircle,
     type Icon as LucideIcon,
     Image,
+    Laptop,
     Loader2,
     LucideProps,
+    Moon,
     MoreVertical,
     Pizza,
     Plus,
     Settings,
+    SunMedium,
     Trash,
     Twitter,
     User,
     X
-} from 'lucide-react';
+} from "lucide-react";
 
 export type Icon = LucideIcon;
 
@@ -44,6 +47,9 @@ export const Icons = {
     arrowRight: ArrowRight,
     help: HelpCircle,
     pizza: Pizza,
+    sun: SunMedium,
+    moon: Moon,
+    laptop: Laptop,
     ellipse: ({ ...props }: LucideProps) => (
         <svg
             aria-hidden='true'

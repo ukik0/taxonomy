@@ -5,7 +5,7 @@ import {ReactTagProps} from "@/@types";
 
 import {cn} from "@/utils/utils";
 import {SearchAlert} from "@/components/dashboard/search-alert";
-import {Button, buttonVariants} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
 
 interface SearchProps extends ReactTagProps<'div'> {
     className?: string;
@@ -21,16 +21,13 @@ export const Search = ({ className, ...props }: SearchProps) => {
                 className={cn('relative w-full', className)}
                 {...props}
             >
-                <Button
-                    className={buttonVariants({
-                        size: 'sm',
-                        variant: 'outline',
-                        className: 'w-[280px] text-slate-500'
-                    })}
-                >
-                    Search documentation...
-                </Button>
-                <kbd className='pointer-events-none absolute right-1.5 top-[50%] hidden h-5 -translate-y-[50%] select-none items-center gap-1 rounded border bg-white px-1.5 font-mono text-[10px] font-medium text-slate-600 opacity-100 sm:flex'>
+                <Input
+                    type='search'
+                    placeholder='Search documentation...'
+                    className='h-8 cursor-pointer w-full sm:w-64 sm:pr-12'
+                    readOnly
+                />
+                <kbd className='pointer-events-none absolute right-1.5 top-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-background px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100 sm:flex'>
                     <span className='text-xs'>⌘</span>K
                 </kbd>
             </div>

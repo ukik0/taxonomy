@@ -1,13 +1,14 @@
-import '@/styles/globals.css';
-import {ReactNode} from 'react';
-import {Inter as FontSans} from 'next/font/google';
+import "@/styles/globals.css";
+import {ReactNode} from "react";
+import {Inter as FontSans} from "next/font/google";
 
-import {siteConfig} from '@/config/site';
-import {absoluteUrl, cn} from '@/utils/utils';
-import {TailwindIndicator} from '@/components/ui/tailwind-indicator';
-import {Toaster} from '@/components/ui/toaster';
+import {siteConfig} from "@/config/site";
+import {absoluteUrl, cn} from "@/utils/utils";
+import {TailwindIndicator} from "@/components/ui/tailwind-indicator";
+import {Toaster} from "@/components/ui/toaster";
+import {ThemeProvider} from "@/components/providers/theme-provider";
 
-const fontSans = FontSans({
+const fontInter = FontSans({
     subsets: ['latin'],
     variable: '--font-inter'
 });
@@ -63,12 +64,20 @@ export const metadata = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
     return (
-        <html lang='en' className={cn('bg-white font-sans text-slate-900 antialiased', fontSans.variable)}>
+        <html lang='en' className={cn('bg-white font-sans text-slate-900 antialiased', fontInter.variable)}>
             <head />
-            <body className='min-h-screen'>
-                {children}
-                <Toaster />
-                <TailwindIndicator />
+            <body
+                className={cn(
+                    'min-h-screen bg-background font-sans antialiased',
+                    fontInter.variable,
+                    fontInter.variable
+                )}
+            >
+                <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+                    {children}
+                    <Toaster />
+                    <TailwindIndicator />
+                </ThemeProvider>
             </body>
         </html>
     );

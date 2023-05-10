@@ -1,21 +1,21 @@
 'use client';
 
-import {useState} from 'react';
-import {useRouter} from 'next/navigation';
-import {userNameSchema} from '@/utils';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {User} from 'next-auth';
-import {useForm} from 'react-hook-form';
-import {z} from 'zod';
+import {useState} from "react";
+import {useRouter} from "next/navigation";
+import {userNameSchema} from "@/utils";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {User} from "next-auth";
+import {useForm} from "react-hook-form";
+import {z} from "zod";
 
-import {toast} from '@/utils/hooks/useToast';
-import {cn} from '@/utils/utils';
-import {Icons} from '@/components/common/icons';
-import {buttonVariants} from '@/components/ui/button';
-import {Card} from '@/components/ui/card';
-import {Input} from '@/components/ui/input';
-import {Label} from '@/components/ui/label';
-import {ReactTagProps} from '../../@types';
+import {toast} from "@/utils/hooks/useToast";
+import {cn} from "@/utils/utils";
+import {Icons} from "@/components/common/icons";
+import {buttonVariants} from "@/components/ui/button";
+import {Card} from "@/components/ui/card";
+import {Input} from "@/components/ui/input";
+import {Label} from "@/components/ui/label";
+import {ReactTagProps} from "../../@types";
 
 interface UserNameFormProps extends ReactTagProps<'form'> {
     user: Pick<User, 'id' | 'name'>;

@@ -1,8 +1,9 @@
+import {NavItem} from '@/@types';
+
 export const NavigationMenu: NavItem[] = [
     {
         title: 'Features',
-        href: '/features',
-        disabled: true
+        href: '/#features'
     },
     {
         title: 'Pricing',
@@ -15,10 +16,5 @@ export const NavigationMenu: NavItem[] = [
     {
         title: 'Documentation',
         href: '/docs'
-    },
-    {
-        title: 'Contact',
-        href: '/contact',
-        disabled: true
     }
 ];
